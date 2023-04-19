@@ -20,7 +20,7 @@ let showData=()=>{
     dataGet.forEach((todo, indexNo) => {
            tBody.innerHTML+=`
           <tr>
-              <td>${todo.id}</td>
+              <td>${++indexNo}</td>
               <td>${todo.todo}</td>
                <td>
               <button id="editBtn">EDIT</button>
@@ -29,15 +29,15 @@ let showData=()=>{
            </tr>`     
     });
  }
-
+ 
 let todoDelete=(id)=>{
     let dataGet=JSON.parse(localStorage.getItem("todos"));
     let storeFilterData=dataGet.filter((todo)=> todo.id!==id);
     localStorage.setItem("todos",JSON.stringify(storeFilterData));
     showData();
 }
+showData()
 
- showData()
 
 addBtn.addEventListener("click",()=>{
 
